@@ -12,7 +12,7 @@
     
     
     
-    <title>归档 | Korcat&#39;s Blog</title>
+    <title>常见的随机过程 | Korcat&#39;s Blog</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -162,47 +162,71 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">常见的随机过程</h1>
     
-        
-        <div class="cube-archive" style="margin-top: 0;">
-            
-                
-                   
-                            <h1 class="title">2023</h1>
-                            <ul class="posts">
-                   
-                            <li class="post">
-                                <a href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html">常见的随机过程</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html">数模学习笔记</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/post/hello.html">Hello World</a>
-                            </li>
-                
-            
-                    </ul>
-                        </div>
-        
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2023-05-23
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">#随机过程</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <ul>
+<li><h3 id="高斯过程"><a href="#高斯过程" class="headerlink" title="高斯过程"></a>高斯过程</h3><ul>
+<li>高斯过程是一种随机过程，即按时间或者空间索引的随机变量的集合。这个集合中的有限个随机变量构成多维高斯分布。高斯过程就是这个集合中所有随机变量(无限多个)的联合分布。</li>
+<li>在机器学习中，一般设均值为0，协方差的元素为高斯核函数</li>
+</ul>
+</li>
+<li><h3 id="泊松过程"><a href="#泊松过程" class="headerlink" title="泊松过程"></a>泊松过程</h3><ul>
+<li>初始时，数量为0；</li>
+<li>后续每个时间段内的数量增量服从一个特定的分布，这个分布只和时间差t-t0有关（lamda确定的情况下，lamda通常为事件发生的频率）</li>
+<li>是一个独立增量过程（任意时间段的增量之间相互独立）</li>
+</ul>
+</li>
+<li><h3 id="维纳过程"><a href="#维纳过程" class="headerlink" title="维纳过程"></a>维纳过程</h3><ul>
+<li>初始时，数量为0；</li>
+<li>后续每个时间段内的数量增量服从一个特定的正态分布，这个分布只和t-t0有关（均值为0，方差确定）</li>
+</ul>
+</li>
+<li><h3 id="马尔科夫过程（下面说的都是马尔科夫链）"><a href="#马尔科夫过程（下面说的都是马尔科夫链）" class="headerlink" title="马尔科夫过程（下面说的都是马尔科夫链）"></a>马尔科夫过程（下面说的都是马尔科夫链）</h3><ul>
+<li>时间和状态都是离散的</li>
+<li>未来的状态至于当前的状态有关，与过去的无关</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        
+        <li class="next">
+            <a href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html">
+                数模学习笔记
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -343,7 +367,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/Notes/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">#数学建模</a>
         </div>
         
