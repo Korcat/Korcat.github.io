@@ -1,701 +1,294 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Korcat">
-    
-    <meta name="description" content="人生有很多的转折，每一个时段有每一个时段的颜色。">
-    
-    
-    
-    
-    
-    
-    <title>Korcat&#39;s Blog</title>
-    <!-- inject:style -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <!-- endinject -->
-    <style>
-        .cube-loading {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('/images/lg/loading.gif') no-repeat center center;
-            background-color: rgba(0,0,0,.7);
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Korcat - 主页</title><meta name="author" content="Korcat"><meta name="copyright" content="Korcat"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="人生有很多的转折，每一个时段有每一个时段的颜色。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Korcat">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Korcat">
+<meta property="og:description" content="人生有很多的转折，每一个时段有每一个时段的颜色。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg">
+<meta property="article:author" content="Korcat">
+<meta property="article:tag" content="Korcat,主页,人生,数模,概率论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg"><link rel="shortcut icon" href="/img/K.jpg"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Korcat',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: true,
+  isToc: false,
+  postUpdate: '2023-05-24 17:32:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-        .cube-loading.out {
-            display: none;
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
         }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-        .cube-loading:before {
-            display: block;
-            content: '加载中';
-            position: relative;
-            width: 100%;
-            top: 50%;
-            right: -50%;
-            color: #fff;
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
         }
-
-        @media(max-width: 768px) {
-            .cube-loading:before {
-                font-size: 1.2em;
-                transform: translate(-24px,20px);
-                -webkit-transform: translate(-24px,20px);
-                -o-transform: translate(-24px,20px);
-                -ms-transform: translate(-24px,20px);
-            }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
-
-        @media(min-width: 768px) {
-            .cube-loading:before {
-
-            }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
         }
-    </style>
+      }
+      const t = saveToLocal.get('theme')
     
-<meta name="generator" content="Hexo 6.3.0"></head>
-<body>
-<div class="cube-body">
-    <nav id="cube-top-memu" class="cube-menu">
-    <ul class="cube-menu-collapse">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <li>
-            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
-            <a href="/">首页</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
-            <a href="/archives">归档</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories">分类</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
-            <a href="/tags">标签</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
-            <a href="/about">关于我</a>
-        </li>
-        
-    </ul>
-</nav>
-<nav class="cube-side-menu" id="cube-side-menu">
-    <ul class="cube-menu-list">
-        
-        <li>
-            <a class="lrc-control">开启歌词</a>
-        </li>
-        
-        <li>
-            <a class="scroll-to-top">回到顶部</a>
-        </li>
-    </ul>
-</nav>
-    <header class="cube-header" id="cube-header">
-    <img src=" https://w.wallhaven.cc/full/rr/wallhaven-rrodj7.jpg " alt="头部背景图片">
-    
-    <div class="cube-type">
-        <span class="cube-typed-title">Korcat&#39;s Blog</span>
-        <span class="cube-typed-cursor">|</span>
-    </div>
-    
-</header>
-
-    <style>
-        nav.cube-menu:before {
-            content: '';
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 44px;
-        
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
-        
-            z-index: -1;
-            background-image: url('https://w.wallhaven.cc/full/rr/wallhaven-rrodj7.jpg');
-            background-repeat: no-repeat;
-            background-position: center -356px;
-            background-size: cover;
-            background-color: transparent;
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
         }
-
-        header.cube-background.cube-header-background {
-            visibility: hidden;
-            background-image: url('https://w.wallhaven.cc/full/rr/wallhaven-rrodj7.jpg');
-            background-position: center -400px;
-        }
-    </style>
-    <header class="cube-background cube-header-background">
-        
-        <div class="cube-type">
-            <span class="cube-typed-title">Korcat&#39;s Blog</span>
-            <span class="cube-typed-cursor">|</span>
-        </div>
-        
-    </header>
-    <div class="load-header-background"></div>
-    <script>
-        (function (window) {
-
-            window.headerModule = {}
-            window.headerModule.image = {
-                width: '2000',
-                height: '1414'
-            }
-
-        })(window)
-    </script>
+      }
     
-    <div class="cube-content">
-        <div class="cube-left">
-            
-<div class="cube-excerpt" id="cube-excerpt-常见的随机过程">
-    <header class="cube-excerpt-header">
-        <h1><a href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html">常见的随机过程</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2023-05-23
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/" class="cube-excerpt-tag-link">#随机过程</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <ul>
-<li><h3 id="高斯过程"><a href="#高斯过程" class="headerlink" title="高斯过程"></a>高斯过程</h3><ul>
-<li>高斯过程是一种随机过程，即按时间或者空间索引的随机变量的集合。这个集合中的有限个随机变量构成多维高斯分布。高斯过程就是这个集合中所有随机变量(无限多个)的联合分布。</li>
-<li>在机器学习中，一般设均值为0，协方差的元素为高斯核函数</li>
-</ul>
-</li>
-<li><h3 id="泊松过程"><a href="#泊松过程" class="headerlink" title="泊松过程"></a>泊松过程</h3><ul>
-<li>初始时，数量为0；</li>
-<li>后续每个时间段内的数量增量服从一个特定的分布，这个分布只和时间差t-t0有关（lamda确定的情况下，lamda通常为事件发生的频率）</li>
-<li>是一个独立增量过程（任意时间段的增量之间相互独立）</li>
-</ul>
-</li>
-<li><h3 id="维纳过程"><a href="#维纳过程" class="headerlink" title="维纳过程"></a>维纳过程</h3><ul>
-<li>初始时，数量为0；</li>
-<li>后续每个时间段内的数量增量服从一个特定的正态分布，这个分布只和t-t0有关（均值为0，方差确定）</li>
-</ul>
-</li>
-<li><h3 id="马尔科夫过程（下面说的都是马尔科夫链）"><a href="#马尔科夫过程（下面说的都是马尔科夫链）" class="headerlink" title="马尔科夫过程（下面说的都是马尔科夫链）"></a>马尔科夫过程（下面说的都是马尔科夫链）</h3><ul>
-<li>时间和状态都是离散的</li>
-<li>未来的状态至于当前的状态有关，与过去的无关</li>
-</ul>
-</li>
-</ul>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/8o/wallhaven-8oj912.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Korcat"><span class="site-name">Korcat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Korcat</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/post/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0.html" title="博客开发笔记"><img class="post-bg" src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/we/wallhaven-we67wr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客开发笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0.html" title="博客开发笔记">博客开发笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-23T15:23:41.000Z" title="发表于 2023-05-23 23:23:41">2023-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Notes/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></span></div><div class="content">
+hexo命令
+hexo 三连：hexo cl,hexo g,hexo s,hexo d
+hexo主题官网  https://hexo.io/themes/
+生成新的博客：
+hexo new “新的博客名字”
 
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html">阅读全文</a>
-    </footer>
-</div>
 
-<div class="cube-excerpt" id="cube-excerpt-数模学习笔记">
-    <header class="cube-excerpt-header">
-        <h1><a href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html">数模学习笔记</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2023-05-23
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/2022%E5%B9%B44%E6%9C%88%E6%95%B0%E6%A8%A1%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" class="cube-excerpt-tag-link">#2022年4月数模学习总结</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h3 id="2022-3-28"><a href="#2022-3-28" class="headerlink" title="2022.3.28"></a>2022.3.28</h3><ul>
-<li><h4 id="层次分析法"><a href="#层次分析法" class="headerlink" title="层次分析法"></a>层次分析法</h4><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><ul>
-<li><p>写出判断矩阵，进行一致性判断（注意矩阵中的元素aij指相较于指标j,指标i的重要程度）</p>
-</li>
-<li><p>根据判断矩阵每一列的数据，求出对应指标的平均权重，如：</p>
-<pre><code>             指标1       指标2	    指标3
+
+
+
+		
+		var gitalkConfig = {"client_id":"a339392ef96b54277b5c","client_secret":"d26f9dbd96d8078aae83c4b6d67af5110fc7297b","repo":"Blog_comments","owner":"Korcat","admin":"Korcat","option":null};
+	    gitalkConfig.id = md5(location.pathname);
+		var gitalk = new Gitalk(gitalkConfig);
+	    gitalk.render("gitalk-container");
+	    </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html" title="常见的随机过程"><img class="post-bg" src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/6d/wallhaven-6d5r5x.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见的随机过程"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html" title="常见的随机过程">常见的随机过程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-23T14:20:07.000Z" title="发表于 2023-05-23 22:20:07">2023-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Notes/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></span></div><div class="content">
+高斯过程
+高斯过程是一种随机过程，即按时间或者空间索引的随机变量的集合。这个集合中的有限个随机变量构成多维高斯分布。高斯过程就是这个集合中所有随机变量(无限多个)的联合分布。
+在机器学习中，一般设均值为0，协方差的元素为高斯核函数
+
+
+泊松过程
+初始时，数量为0；
+后续每个时间段内的数量增量服从一个特定的分布，这个分布只和时间差t-t0有关（lamda确定的情况下，lamda通常为事件发生的频率）
+是一个独立增量过程（任意时间段的增量之间相互独立）
+
+
+维纳过程
+初始时，数量为0；
+后续每个时间段内的数量增量服从一个特定的正态分布，这个分布只和t-t0有关（均值为0，方差确定）
+
+
+马尔科夫过程（下面说的都是马尔科夫链）
+时间和状态都是离散的
+未来的状态至于当前的状态有关，与过去的无关
+
+
+
+
+
+
+
+		
+		var gitalkConfig = {"client_id":"a339392ef96b54277b5c","client_secret":"d26f9dbd96d8078aae83c4b6d67af5110fc7297b","repo":"Blog_comments","o ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html" title="数模学习笔记"><img class="post-bg" src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/we/wallhaven-we67wr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数模学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html" title="数模学习笔记">数模学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-23T13:12:01.000Z" title="发表于 2023-05-23 21:12:01">2023-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Notes/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a></span></div><div class="content">2022.3.28
+层次分析法步骤
+写出判断矩阵，进行一致性判断（注意矩阵中的元素aij指相较于指标j,指标i的重要程度）
+
+根据判断矩阵每一列的数据，求出对应指标的平均权重，如：
+             指标1       指标2	    指标3
   指标1	    1	      2	         5
   指标2	    1/2	      1	         2
   指标3	    1/5	      1/2	     1
-</code></pre>
-</li>
-</ul>
-<p>  w1&#x3D;[1&#x2F;(1+1&#x2F;2+1&#x2F;5) + 2&#x2F;(2+1+1&#x2F;2) + 5&#x2F;(5+2+1)]&#x2F;3<br>  w2&#x3D;…<br>  w3&#x3D;…</p>
-</li>
-<li><h4 id="TOPSIS-熵权法"><a href="#TOPSIS-熵权法" class="headerlink" title="TOPSIS+熵权法"></a>TOPSIS+熵权法</h4><p>  1.用TOPSIS时，先进行指标极大型转化（正向化），再进行标准化（去除量纲的影响）<br>  2.熵权法用来求各个指标的权重，用之前需要对原始数据进行正向化（如果原始数据中存在负数需要将数据进行另一种标准化处理）</p>
-</li>
-<li><h4 id="灵敏度分析和稳健性分析"><a href="#灵敏度分析和稳健性分析" class="headerlink" title="灵敏度分析和稳健性分析"></a>灵敏度分析和稳健性分析</h4><h5 id="1-灵敏度"><a href="#1-灵敏度" class="headerlink" title="1.灵敏度"></a>1.灵敏度</h5><p>  一般采用相对变量的百分比改变形式，定义为：α&#x3D;(△y&#x2F;y)&#x2F;(△x&#x2F;x),其中y为目标变量，x为灵敏度分析参数，若α&#x3D;-1.1，则表示若x提高10%，则y减少11%</p>
-<h5 id="2-稳健性"><a href="#2-稳健性" class="headerlink" title="2.稳健性"></a>2.稳健性</h5><p>  一个模型称为稳健的，是指即使这个模型不完全精确，由其导出的结果也是正确的。稳健性分析常常是针对模型的某些理想化假设做分析。</p>
-</li>
-</ul>
-<hr>
-<h3 id="2020-4-4"><a href="#2020-4-4" class="headerlink" title="2020.4.4"></a>2020.4.4</h3><ul>
-<li><h4 id="罚函数"><a href="#罚函数" class="headerlink" title="罚函数"></a>罚函数</h4><h5 id="1-外点法"><a href="#1-外点法" class="headerlink" title="1.外点法"></a>1.外点法</h5><p>  将约束条件放入目标函数中，如果不满足约束条件，目标函数会很差（该方法的初始点可以不满足约束）</p>
-<h5 id="2-内点法"><a href="#2-内点法" class="headerlink" title="2.内点法"></a>2.内点法</h5><p>  也是将约束条件（不等式约束）放入目标函数中，但是不同的是一个解越靠近约束边界（这个解还在约束条件以内），目标函数会越差</p>
-</li>
-<li><h4 id="马尔科夫预测和隐马尔科夫模型"><a href="#马尔科夫预测和隐马尔科夫模型" class="headerlink" title="马尔科夫预测和隐马尔科夫模型"></a>马尔科夫预测和隐马尔科夫模型</h4><h5 id="1-马尔科夫预测"><a href="#1-马尔科夫预测" class="headerlink" title="1.马尔科夫预测"></a>1.马尔科夫预测</h5><ul>
-<li>马尔科夫预测主要是通过状态转移概率矩阵以及给定一个初始的状态概率向量来进行预测</li>
-<li>状态的极限极限概率分布：<br>  若状态转移概率矩阵是一个正则矩阵，则存在一个极限向量π，对于状态转移概率矩阵A，有：π&#x3D;π*A</li>
-</ul>
-<h5 id="2-隐马尔科夫模型"><a href="#2-隐马尔科夫模型" class="headerlink" title="2.隐马尔科夫模型"></a>2.隐马尔科夫模型</h5><ul>
-<li>隐马尔科夫模型存在两条链，一条是关于状态的马尔科夫链（隐藏的），一条是对当前状态的事件观测链（非隐藏的）</li>
-<li>假设一共存在N种状态，所有状态一共存在M种事件</li>
-<li>隐马尔科夫的参数集lambda为[状态转移概率矩阵，所有对应状态的所有事件可能发生的概率矩阵，初始时状态的概率向量]</li>
-<li>隐马尔科夫模型有三个基本问题：<ul>
-<li>a.概率计算问题：给定参数集lambda和观测序列O，计算在参数lambda的下序列O出现的条件概率</li>
-<li>b.学习问题：通过已知的观测序列O，估计参数lambda，使得在这个lambda的条件下，序列O出现的概率最大（如给出了状态序列，则是监督学习；没给出状态序列，则是无监督学习）</li>
-<li>c.预测问题：已知lambda和观测序列O，求解在这些条件下出现概率最大的状态序列I</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h4 id="关于数据归一化和标准化的作用和区别"><a href="#关于数据归一化和标准化的作用和区别" class="headerlink" title="关于数据归一化和标准化的作用和区别"></a>关于数据归一化和标准化的作用和区别</h4><p>  数据归一化和标准化都是将数据转换为在一定范围内的新数值的方法，但是它们的目的和作用是有所不同。</p>
-<ul>
-<li><p>数据标准化是指通过将数据按其均值除以标准差来缩放数据，使得它们具有零均值和单位方差的特性，即将数据转换成以0为中心，标准差为1的分布。这个方法通常适用于数据近似正态分布的情况，并且在一些算法（如线性回	归	和逻辑回归）中经常使用，它可以使取值范围较大的特征对模型的影响与取值范围较小的特征相同，并能够更好地保留原始数据的分布信息。</p>
-</li>
-<li><p>而数据归一化是将数据缩放到一定范围内（通常是0到1），即将数据映射到一个特定的区间。最小最大归一化是最常见的归一化方法，在该方法中，我们使用线性函数将数据线性变换到 [0, 1] 范围内，以便更好地应用于一些	算	法，例如比较集中的数值数据。但是，如果最大值和最小值不稳定，很容易使归一化结果不稳定。<br>   因此，虽然两者都是对数据进行转换以减少不同特征之间的度量单位的影响，但它们要解决的问题以及目的和作用是有所不同的。</p>
-</li>
-</ul>
-</li>
-<li><h4 id="多元回归分析"><a href="#多元回归分析" class="headerlink" title="多元回归分析"></a>多元回归分析</h4><h5 id="1-步骤"><a href="#1-步骤" class="headerlink" title="1.步骤"></a>1.步骤</h5><ul>
-<li>进行回归操作，得到回归系数</li>
-<li>进行回归模型的假设检验、回归系数的显著性检验、异方差检验（保证显著性检验的有效性），多重共线性检验</li>
-</ul>
-<h5 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h5><ul>
-<li>普通最小二乘回归</li>
-<li>稳健的最小二乘回归</li>
-<li>前向和后向回归</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="2022-4-5"><a href="#2022-4-5" class="headerlink" title="2022.4.5"></a>2022.4.5</h3><ul>
-<li><h4 id="微分方程模型"><a href="#微分方程模型" class="headerlink" title="微分方程模型"></a>微分方程模型</h4><h5 id="1-传染病模型"><a href="#1-传染病模型" class="headerlink" title="1.传染病模型"></a>1.传染病模型</h5><ul>
-<li>普通传染模型：每天感染人数的增量为病人接触到的总人数。缺点：时间趋于无穷时，感染人数趋于无穷，这显然不符合实际。</li>
-<li>SI模型：将人群划分为已感染人群和未感染人群；每天感染人数的增量为病人接触到的健康人群总数。缺点：当时间趋于无穷时，所有人都会得病。</li>
-<li>SIS模型：新增假设：病人可以治愈为健康人，但健康人可以再次被感染。缺点：没有考虑到治愈免疫的情况。</li>
-<li>SIR模型：总人数分为病人、健康人和免疫者三大群体。（注意：该模型没有解析解）</li>
-</ul>
-<h5 id="2-Malthus模型和Logistic模型"><a href="#2-Malthus模型和Logistic模型" class="headerlink" title="2.Malthus模型和Logistic模型"></a>2.Malthus模型和Logistic模型</h5><ul>
-<li>Malthus模型：就是指数增长模型</li>
-<li>Logistic模型：增长率随时间而减少（一般不会降到0及以下）</li>
-</ul>
-<h5 id="3-种群模型"><a href="#3-种群模型" class="headerlink" title="3.种群模型"></a>3.种群模型</h5><ul>
-<li>竞争模型：两个种群依靠同一种资源生存，都受到Logistic规律的制约</li>
-<li>弱肉强食模型：都可以认为受到Logistic模型的制约（有时可以认为不受该制约）；弱群体受到强群体数量的制约（负相关），强群体也会受到弱群体数量的制约（正相关）</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="2022-4-6"><a href="#2022-4-6" class="headerlink" title="2022.4.6"></a>2022.4.6</h3><ul>
-<li><h4 id="检验样本是否服从某个分布"><a href="#检验样本是否服从某个分布" class="headerlink" title="检验样本是否服从某个分布"></a>检验样本是否服从某个分布</h4><h5 id="1-QQ图"><a href="#1-QQ图" class="headerlink" title="1.QQ图"></a>1.QQ图</h5><h5 id="2-秩和检验"><a href="#2-秩和检验" class="headerlink" title="2.秩和检验"></a>2.秩和检验</h5></li>
-<li><h4 id="Bootstrap方法"><a href="#Bootstrap方法" class="headerlink" title="Bootstrap方法"></a>Bootstrap方法</h4><ul>
-<li>Bootstrap方法主要有两种类型：参数bootstrap方法和非参数bootstrap方法。参数bootstrap方法适用于已知数据总体分布的情况，可以通过从原始样本中进行	多次bootstrap抽样，并利用这些bootstrap样本对总体分布的参数进行统计推断，例如平均值、标准差等；非参数bootstrap方法适用于未知数据总体分布的情况，	可以通过从原始样本中进行多次bootstrap抽样，并利用这些bootstrap样本估计总体分布和参数。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="2022-4-8"><a href="#2022-4-8" class="headerlink" title="2022.4.8"></a>2022.4.8</h3><ul>
-<li><h4 id="多元分析"><a href="#多元分析" class="headerlink" title="多元分析"></a>多元分析</h4><h5 id="1-主成分分析：将多个指标合成为2个或多个主成分"><a href="#1-主成分分析：将多个指标合成为2个或多个主成分" class="headerlink" title="1.主成分分析：将多个指标合成为2个或多个主成分"></a>1.主成分分析：将多个指标合成为2个或多个主成分</h5><ul>
-<li>步骤：<ul>
-<li>a.将数据进行标准化（数据减去均值除以方差）</li>
-<li>b.求出相关系数矩阵，并得到该矩阵的特征值和标准化的特征向量</li>
-<li>c.计算特征值的累计贡献度，以80%为阈值选择主成分，得到对应特征值的标准化特征向量</li>
-<li>d.得到主成分的标准化解释方程，并通过主成分的系数对各个主成分进行命名</li>
-<li>e.若要进行回归，则以各个主成分为指标进行回归，得到回归方程后将标准化的自变量恢复到原始的自变量</li>
-<li>f.若要进行评价，用“各个主成分数据*其对应累计贡献度“求和即可得到对应样本的得分</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-因子分析：将多个指标分解为多个细化的指标（因子，其含义需要人为的分析指定；原指标之间可能存在相互解释性或者相关性，需要将它们进行细分才能得到较好的回归效果）"><a href="#2-因子分析：将多个指标分解为多个细化的指标（因子，其含义需要人为的分析指定；原指标之间可能存在相互解释性或者相关性，需要将它们进行细分才能得到较好的回归效果）" class="headerlink" title="2.因子分析：将多个指标分解为多个细化的指标（因子，其含义需要人为的分析指定；原指标之间可能存在相互解释性或者相关性，需要将它们进行细分才能得到较好的回归效果）"></a>2.因子分析：将多个指标分解为多个细化的指标（因子，其含义需要人为的分析指定；原指标之间可能存在相互解释性或者相关性，需要将它们进行细分才能得到较好的回归效果）</h5><ul>
-<li>步骤（主成分分析法）：<ul>
-<li>a.将数据进行标准化（数据减去均值除以方差）</li>
-<li>b.求出相关系数矩阵，并得到该矩阵的特征值和标准化的特征向量</li>
-<li>c.计算特征值的累计贡献度，以80%为阈值选择因子（主成分），得到对应特征值的标准化特征向量；利用筛选下来的特征值以及对应的特征向量得到初等载荷矩阵</li>
-<li>d.对初等载荷矩阵进行旋转，得到因子模型的系数矩阵，进而得到因子模型（x1&#x3D;a<em>f1+b</em>f2+…。f为因子）</li>
-<li>e.计算各个因子的得分函数（方程，即f1&#x3D;a<em>x1+b</em>x2+…。注意这里的x都是标准化后的）</li>
-<li>f.计算得分与主成分一致</li>
-<li>g.回归过程与主成分一致</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-典型相关分析：用于研究两组变量（每一组变量可以包含多个变量）的相关程度"><a href="#3-典型相关分析：用于研究两组变量（每一组变量可以包含多个变量）的相关程度" class="headerlink" title="3.典型相关分析：用于研究两组变量（每一组变量可以包含多个变量）的相关程度"></a>3.典型相关分析：用于研究两组变量（每一组变量可以包含多个变量）的相关程度</h5><ul>
-<li>步骤：<ul>
-<li>a.进行数据标准化（zscore）并计算两组变量中所有变量的相关系数矩阵</li>
-<li>b.计算典型相关系数和典型变量</li>
-<li>c.进行典型相关系数的显著性检验，确定典型变量的个数</li>
-<li>d.得到典型相关模型，研究影响每一组的典型变量（u,v）的主要因素</li>
-<li>e.得到典型结构，即ui对xi、yi和vi对xi、yi的相关系数</li>
-<li>f.进行典型冗余分析，得到每一组变量被本组典型变量和对对方组典型变量的解释比例</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-对应分析：也是适用于研究两组变量的相关性，但是研究的是计数关系（研究在不同的对应两个指标的情况下的频数相关性）"><a href="#4-对应分析：也是适用于研究两组变量的相关性，但是研究的是计数关系（研究在不同的对应两个指标的情况下的频数相关性）" class="headerlink" title="4.对应分析：也是适用于研究两组变量的相关性，但是研究的是计数关系（研究在不同的对应两个指标的情况下的频数相关性）"></a>4.对应分析：也是适用于研究两组变量的相关性，但是研究的是计数关系（研究在不同的对应两个指标的情况下的频数相关性）</h5><ul>
-<li>步骤：看书吧，不想写了（CSDN的步骤更详细）</li>
-</ul>
-</li>
-</ul>
-<pre><code>     	
 
-    
-</code></pre>
 
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html">阅读全文</a>
-    </footer>
-</div>
 
-<div class="cube-excerpt" id="cube-excerpt-Hello World">
-    <header class="cube-excerpt-header">
-        <h1><a href="/post/hello.html">Hello World</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2023-05-22
+  w1&#x3D;[1&#x2F;(1+1&#x2F;2+1&#x2F;5) + 2&#x2F;(2+1+1&#x2F;2) + 5&#x2F;(5+2+1)]&#x2F;3  w2&#x3D;…  w3&#x3D;…
+
+TOPSIS+熵权法  1.用TOPSIS时，先进行指标极大型转化（正向化），再进行标准化（去除量纲的影响）  2.熵权法用来求各个指标的权重，用之前需要对原始数据进行正向化（如果原始数据中存在负数需要将数据进行另一种标准化处理）
+
+灵敏度分析和稳健性分析1.灵敏度  一般采用相对变量的百分比改变形式，定义为：α&#x3D;( ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/post/hello.html" title="Hello World"><img class="post-bg" src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/ex/wallhaven-ex9gwo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/post/hello.html" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-22T07:21:31.811Z" title="发表于 2023-05-22 15:21:31">2023-05-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Notes/">Notes</a></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+
+
+
+
+		
+		var gitalkConfig = {"client_id":"a339392ef96b54277b ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Korcat</div><div class="author-info__description">人生有很多的转折，每一个时段有每一个时段的颜色。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0.html" title="博客开发笔记"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/we/wallhaven-we67wr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客开发笔记"/></a><div class="content"><a class="title" href="/post/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0.html" title="博客开发笔记">博客开发笔记</a><time datetime="2023-05-23T15:23:41.000Z" title="发表于 2023-05-23 23:23:41">2023-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html" title="常见的随机过程"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/6d/wallhaven-6d5r5x.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见的随机过程"/></a><div class="content"><a class="title" href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html" title="常见的随机过程">常见的随机过程</a><time datetime="2023-05-23T14:20:07.000Z" title="发表于 2023-05-23 22:20:07">2023-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html" title="数模学习笔记"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/we/wallhaven-we67wr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数模学习笔记"/></a><div class="content"><a class="title" href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html" title="数模学习笔记">数模学习笔记</a><time datetime="2023-05-23T13:12:01.000Z" title="发表于 2023-05-23 21:12:01">2023-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/hello.html" title="Hello World"><img src="https://img.zcool.cn/community/012b3c599276cc0000002129ebff53.gif" data-original="https://w.wallhaven.cc/full/ex/wallhaven-ex9gwo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/post/hello.html" title="Hello World">Hello World</a><time datetime="2023-05-22T07:21:31.811Z" title="发表于 2023-05-22 15:21:31">2023-05-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
             </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/original%E6%95%99%E7%A8%8B/" class="cube-excerpt-tag-link">#original教程</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/post/hello.html">阅读全文</a>
-    </footer>
-</div>
-
-
-
-<ul class="cube-pagination cube-pagination-6">
-    
-    <li class="cube-pagination-prev disabled">
-        <span>« 上一页</span>
-    </li>
-    
-    
-        
-            
-            <li class="cube-pagination-index disabled">
-                <span>1</span>
-            </li>
-            
-        
-    
-
-    
-    <li class="cube-pagination-next disabled">
-        <span>下一页 »</span>
-    </li>
-    
-</ul>
-
-<!--其他组件后续添加-->
-        </div>
-        <div class="cube-right">
-            
-
-<div class="cube-search cube-sidebar" id="cube-search">
-    <div class="search-container">
-        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
-        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
-    </div>
-    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
-</div>
-<script>
-    (function (window) {
-        'use strict';
-        window.searchModule = {}
-        window.searchModule.JSONUrl = '/content.json'
-        window.searchModule.rootUrl = '/'
-    })(window)
-</script>
-<div class="cube-search-form">
-    <div class="cube-search-control">
-        <input type="text" placeholder="搜索" class="search-input">
-        <a class="close-button">
-            <i class="cube-icon cube-close" aria-hidden="true"></i>
-        </a>
-    </div>
-    <div class="cube-search-result"></div>
-</div>
-
-
-<div class="cube-author cube-sidebar" id="cube-author">
-    
-    
-    <span>Korcat</span>
-    
-    
-    <a title="人生有很多的转折，每一个时段有每一个时段的颜色。">人生有很多的转折，每一个时段有每一个时段的颜色。</a>
-    
-    <div class="count">
-        <a class="count articles"><span>3</span>文章</a>
-        <a class="count tags"><span>3</span>标签</a>
-        <a class="count categories"><span>3</span>分类</a>
-    </div>
-</div>
-
-
-
-<div class="cube-music cube-sidebar" id="cube-music">
-    <div class="cube-player aplayer" id="cube-player"></div>
-</div>
-<script>
-    (function (window) {
-        window.musicModule = {}
-        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
-        window.musicModule.lrcConfig = {
-            open: '开启歌词',
-            close: '关闭歌词'
-        }
-    })(window)
-</script>
-
-
-
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>近期文章</a>
-    </div>
-    <ul class="list">
-        
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            
-            <div class="preview">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <div class="image" style="background-image: url(https://w.wallhaven.cc/full/r7/wallhaven-r7o1qj.jpg);"></div>
-                <div class="info">
-                    <p class="title">
-                        <a href="/post/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B.html" title="常见的随机过程">常见的随机过程</a>
-                    </p>
-                    <p class="date">
-                        2023-05-23
-                    </p>
-                </div>
-            </div>
-            
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/post/%E6%95%B0%E6%A8%A1%E6%80%BB%E7%BB%93.html" title="数模学习笔记">数模学习笔记</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/post/hello.html" title="Hello World">Hello World</a>
-                </p>
-            </div>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-categories cube-sidebar" id="cube-categories">
-    <div class="title">
-        <a href="/categories">分类</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/Notes/">#Notes</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/categories/Notes/%E6%A6%82%E7%8E%87%E8%AE%BA/">#概率论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/Notes/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">#数学建模</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
-    <div class="title">
-        <a href="/tags">标签云</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/original%E6%95%99%E7%A8%8B/">#original教程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/">#随机过程</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/2022%E5%B9%B44%E6%9C%88%E6%95%B0%E6%A8%A1%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">#2022年4月数模学习总结</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-links cube-sidebar" id="cube-links">
-    <div class="title">
-        <a>个人链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
-            
-            <a href="https://github.com/Korcat" target="_blank">GitHub</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
-            
-            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
-            
-            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
-            
-            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
-    <div class="title">
-        <a>友情链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
-            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
-            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="/images/friend_links.jpg ">
-            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-    </div>
-</div>
-<footer class="cube-footer">
-    
-© 2017 Korcat
-
-<br>
-Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-</footer>
-<!-- inject:script -->
-<script src="/js/script.js"></script>
-<!-- endinject -->
-<div class="cube-loading out"></div>
-</body>
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Notes/"><span class="card-category-list-name">Notes</span><span class="card-category-list-count">4</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Notes/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="card-category-list-name">博客搭建</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Notes/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><span class="card-category-list-name">数学建模</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Notes/%E6%A6%82%E7%8E%87%E8%AE%BA/"><span class="card-category-list-name">概率论</span><span class="card-category-list-count">1</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/original%E6%95%99%E7%A8%8B/" style="font-size: 1.1em; color: #999">original教程</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/" style="font-size: 1.1em; color: #999">随机过程</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">博客搭建笔记</a> <a href="/tags/2022%E5%B9%B44%E6%9C%88%E6%95%B0%E6%A8%A1%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">2022年4月数模学习总结</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">3.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-05-24T09:32:52.243Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/8o/wallhaven-8oj912.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Korcat</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["玻璃晴朗，橘子辉煌。","总之岁月漫长，然而值得等待。","吹不出褶的平静日子也在闪光。","我们长棱角，因为要变成星星。","清醒，自律，知进退，明得失。","生活，一半家长里短，一半山川湖海。","喜欢镜头里的每一个故事。"])
+  } else {
+    document.getElementById("subtitle").textContent = '玻璃晴朗，橘子辉煌。'
+  }
+}
+typedJSFn.run(subtitleType)</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
